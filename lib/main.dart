@@ -14,7 +14,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  GetMaterialApp(
-      theme: ThemeData().copyWith(scaffoldBackgroundColor:const  Color(backGroundColor)),
+      theme: ThemeData.dark().copyWith(scaffoldBackgroundColor:const  Color(backGroundColor)),
    debugShowCheckedModeBanner: false,
       home: const  SplashView(),
     );
