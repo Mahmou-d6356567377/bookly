@@ -1,7 +1,11 @@
 import 'package:bookly/Features/Splash/Presentation/Views/Widgets/SlidingText.dart';
+import 'package:bookly/Features/home/presentation/Views/homeView.dart';
 import 'package:bookly/core/Helps/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get_core/get_core.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -17,10 +21,27 @@ class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProvid
   @override
   void initState() {
     super.initState();
-    animationController = AnimationController(vsync: this, duration: const Duration(seconds: 1));
-    slidingAnimation = Tween<Offset>(begin: const Offset(0, 10), end: Offset.zero).animate(animationController);
 
-    // Start the animation when the widget is initialized
+    initslidingAnimation();
+   
+   navigateToHome();
+  
+  }
+
+  void navigateToHome() {
+     Future.delayed(const Duration(seconds: 2), 
+    (){
+      Get.to(()=> const HomeView(), transition: Transition.fade,duration: ktransitionDuration);
+    });
+      
+  }
+
+  void initslidingAnimation() {
+     animationController = AnimationController(
+      vsync: this,
+     duration: const Duration(seconds: 1));
+    slidingAnimation = Tween<Offset>(begin: const Offset(0, 10),
+     end: Offset.zero).animate(animationController);
     animationController.forward();
   }
 

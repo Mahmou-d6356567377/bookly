@@ -10,6 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   get: ^4.6.6
+  google_fonts: ^6.2.1
 
 dev_dependencies:
   flutter_lints: ^3.0.0
@@ -21,6 +22,10 @@ flutter:
     - family: PoetsenOne-Regular
       fonts:
         - asset: assets/fonts/PoetsenOne-Regular.ttf
+          weight: 700
+    - family: GT
+      fonts:
+        - asset: assets/fonts/GT Sectra Fine Regular.ttf
           weight: 700
 
   uses-material-design: true
