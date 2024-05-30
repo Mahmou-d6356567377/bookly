@@ -22,7 +22,6 @@ abstract class Styles{
     static const style20 = TextStyle(
    fontSize: 20,
     fontWeight: FontWeight.normal,
-    fontFamily: 'GT'
     
   );
 
