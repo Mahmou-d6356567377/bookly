@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+import 'package:go_router/go_router.dart';
 
 
 class SplashViewBody extends StatefulWidget {
@@ -28,14 +29,6 @@ class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProvid
   
   }
 
-  void navigateToHome() {
-     Future.delayed(const Duration(seconds: 2), 
-    (){
-      Get.to(()=> const HomeView(), transition: Transition.fade,duration: ktransitionDuration);
-    });
-      
-  }
-
   void initslidingAnimation() {
      animationController = AnimationController(
       vsync: this,
@@ -44,6 +37,17 @@ class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProvid
      end: Offset.zero).animate(animationController);
     animationController.forward();
   }
+
+  void navigateToHome() {
+     Future.delayed(const Duration(seconds: 2), 
+    (){
+     // Get.to(()=> const HomeView(), transition: Transition.fade,duration: ktransitionDuration);
+     GoRouter.of(context).push('/homeview');
+    });
+      
+  }
+
+
 
   @override
   void dispose() {
