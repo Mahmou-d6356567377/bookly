@@ -1,4 +1,3 @@
-
 import 'package:bookly/Features/home/presentation/Views/Widgets/BestSellerCrollView.dart';
 import 'package:bookly/Features/home/presentation/Views/Widgets/book-list-view.dart';
 import 'package:bookly/Features/home/presentation/Views/Widgets/customerAppBar.dart';
@@ -15,37 +14,37 @@ class HomeBody extends StatelessWidget {
     return Scaffold(
       // we use customscrollview to build nested scroll view
       body: CustomScrollView(
-      slivers: <Widget>[
-        SliverToBoxAdapter(
-          child:   Container(
-      color: const  Color(backGroundColor),
-      child: const Padding(
-        padding:  EdgeInsets.symmetric(horizontal: 30),
-        child:  Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [ 
-            CustomAppBar(),
-            BookListView(),
-          Text(' Best seller', style:Styles.style18,
+        slivers: <Widget>[
+          SliverToBoxAdapter(
+            child: Container(
+              color: const Color(backGroundColor),
+              child: const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 30),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    CustomAppBar(),
+                    BookListView(),
+                    Text(
+                      ' Best seller',
+                      style: Styles.style18,
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ),
-          SizedBox(height: 20,),
-        
-          ],
-        ),
+          const SliverToBoxAdapter(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 30),
+              child: BestSellerListView(),
+            ),
+          )
+        ],
       ),
-    ),
-    ),
-
-    const  SliverToBoxAdapter(
-      
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 30),
-        child: BestSellerListView(),
-      ),
-    )
-      ],
-    ),
     );
   }
 }
-

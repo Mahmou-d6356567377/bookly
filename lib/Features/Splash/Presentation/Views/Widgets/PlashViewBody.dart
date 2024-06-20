@@ -7,7 +7,6 @@ import 'package:get/get_core/get_core.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:go_router/go_router.dart';
 
-
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
 
@@ -15,7 +14,8 @@ class SplashViewBody extends StatefulWidget {
   State<SplashViewBody> createState() => _SplashViewBodyState();
 }
 
-class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProviderStateMixin {
+class _SplashViewBodyState extends State<SplashViewBody>
+    with SingleTickerProviderStateMixin {
   late AnimationController animationController;
   late Animation<Offset> slidingAnimation;
 
@@ -24,30 +24,25 @@ class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProvid
     super.initState();
 
     initslidingAnimation();
-   
-   navigateToHome();
-  
+
+    navigateToHome();
   }
 
   void initslidingAnimation() {
-     animationController = AnimationController(
-      vsync: this,
-     duration: const Duration(seconds: 1));
-    slidingAnimation = Tween<Offset>(begin: const Offset(0, 10),
-     end: Offset.zero).animate(animationController);
+    animationController =
+        AnimationController(vsync: this, duration: const Duration(seconds: 1));
+    slidingAnimation =
+        Tween<Offset>(begin: const Offset(0, 10), end: Offset.zero)
+            .animate(animationController);
     animationController.forward();
   }
 
   void navigateToHome() {
-     Future.delayed(const Duration(seconds: 2), 
-    (){
-     // Get.to(()=> const HomeView(), transition: Transition.fade,duration: ktransitionDuration);
-     GoRouter.of(context).push('/homeview');
+    Future.delayed(const Duration(seconds: 2), () {
+      // Get.to(()=> const HomeView(), transition: Transition.fade,duration: ktransitionDuration);
+      GoRouter.of(context).push('/homeview');
     });
-      
   }
-
-
 
   @override
   void dispose() {
@@ -71,7 +66,9 @@ class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProvid
               child: child,
             );
           },
-          child: SlidingText(slidingAnimation: slidingAnimation,),
+          child: SlidingText(
+            slidingAnimation: slidingAnimation,
+          ),
         ),
       ],
     );
