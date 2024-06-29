@@ -22,17 +22,18 @@ class MainApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => FeaturedBooksCubit(getIt.get<HomeRepoImpl>()),
+          create: (context) => FeaturedBooksCubit(getIt.get<HomeRepoImpl>())..fetchFeaturedBooks(),
+          // means after that give me this function 
         ),
         BlocProvider(
-          create: (context) => NewestBooksCubitCubit(getIt.get<HomeRepoImpl>()),
+          create: (context) => NewestBooksCubitCubit(getIt.get<HomeRepoImpl>())..fetchNewestBooks(),
         ),
       ],
       child: MaterialApp.router(
         routerConfig: AppRoutes.router,
         debugShowCheckedModeBanner: false,
         theme: ThemeData.dark().copyWith(
-          scaffoldBackgroundColor: const Color(backGroundColor),
+          scaffoldBackgroundColor: const Color(backGroundColor2),
           textTheme: GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
         ),
       ),

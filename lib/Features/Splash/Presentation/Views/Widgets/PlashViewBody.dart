@@ -1,10 +1,7 @@
 import 'package:bookly/Features/Splash/Presentation/Views/Widgets/SlidingText.dart';
-import 'package:bookly/Features/home/presentation/Views/homeView.dart';
 import 'package:bookly/core/Helps/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:get/get_core/get_core.dart';
-import 'package:get/get_navigation/get_navigation.dart';
 import 'package:go_router/go_router.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -52,25 +49,42 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Image.asset(kLogoImage),
-        // Ensure SlidingText widget listens to animation changes
-        AnimatedBuilder(
-          animation: animationController,
-          builder: (context, child) {
-            return Transform.translate(
-              offset: slidingAnimation.value,
-              child: child,
-            );
-          },
-          child: SlidingText(
-            slidingAnimation: slidingAnimation,
+    return Container(
+
+      decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+            Color(backGroundColor1),
+            Color(backGroundColor2),
+            Color(backGroundColor3),
+            Color(backGroundColor4),
+            Color(backGroundColor5),
+           
+            ],
           ),
         ),
-      ],
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Image.asset(kLogoImage),
+          // Ensure SlidingText widget listens to animation changes
+          AnimatedBuilder(
+            animation: animationController,
+            builder: (context, child) {
+              return Transform.translate(
+                offset: slidingAnimation.value,
+                child: child,
+              );
+            },
+            child: SlidingText(
+              slidingAnimation: slidingAnimation,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

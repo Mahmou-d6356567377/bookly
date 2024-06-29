@@ -16,6 +16,6 @@ final class NewestBooksCubitSuccess extends NewestBooksCubitState {
 }
 final class NewestBooksCubitFailure extends NewestBooksCubitState {
 
-  final String errMsg;
-  const NewestBooksCubitFailure(this.errMsg);
+  final String ErrorMessage;
+  const NewestBooksCubitFailure(this.ErrorMessage);
 }

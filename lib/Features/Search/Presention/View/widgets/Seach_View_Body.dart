@@ -13,6 +13,7 @@ class SearchViewBody extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(8.0),
               child: SizedBox(height: 50, child: CustomSearchField()),
+              
             ),
           ],
         ),

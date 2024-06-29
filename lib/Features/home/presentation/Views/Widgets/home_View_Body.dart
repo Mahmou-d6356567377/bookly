@@ -11,14 +11,14 @@ class HomeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const  Scaffold(
       // we use customscrollview to build nested scroll view
       body: CustomScrollView(
         slivers: <Widget>[
           SliverToBoxAdapter(
-            child: Container(
-              color: const Color(backGroundColor),
-              child: const Padding(
+            child: SizedBox(
+             
+              child:  Padding(
                 padding: EdgeInsets.symmetric(horizontal: 30),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,7 +37,7 @@ class HomeBody extends StatelessWidget {
               ),
             ),
           ),
-          const SliverToBoxAdapter(
+           SliverToBoxAdapter(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 30),
               child: BestSellerListView(),

@@ -32,7 +32,7 @@ class VolumeInfo extends Equatable {
     this.maturityRating,
     this.allowAnonLogging,
     this.contentVersion,
-    this.imageLinks,
+    required this.imageLinks,
     this.language,
     this.previewLink,
     this.infoLink,
@@ -41,7 +41,7 @@ class VolumeInfo extends Equatable {
 
   factory VolumeInfo.fromJson(Map<String, dynamic> json) => VolumeInfo(
         title: json['title'] as String?,
-        authors: json['authors'] as List<String>?,
+        authors: (json['authors'] as List<dynamic>?)?.cast<String>(),
         publishedDate: json['publishedDate'] as String?,
         industryIdentifiers: (json['industryIdentifiers'] as List<dynamic>?)
             ?.map((e) => IndustryIdentifier.fromJson(e as Map<String, dynamic>))
@@ -55,9 +55,7 @@ class VolumeInfo extends Equatable {
         maturityRating: json['maturityRating'] as String?,
         allowAnonLogging: json['allowAnonLogging'] as bool?,
         contentVersion: json['contentVersion'] as String?,
-        imageLinks: json['imageLinks'] == null
-            ? null
-            : ImageLinks.fromJson(json['imageLinks'] as Map<String, dynamic>),
+        imageLinks: (json['imageLinks']== null)? null:ImageLinks.fromJson(json['imageLinks'] as Map<String, dynamic>),
         language: json['language'] as String?,
         previewLink: json['previewLink'] as String?,
         infoLink: json['infoLink'] as String?,
